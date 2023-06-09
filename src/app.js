@@ -9,8 +9,7 @@ const app = express();
 
 // middleware
 app.use(express.json());
-app.use(cors())
-
+app.use(cors());
 // router
 app.use("/api", productRouter)
 app.use("/api", );
