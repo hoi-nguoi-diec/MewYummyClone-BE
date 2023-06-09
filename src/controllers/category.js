@@ -36,3 +36,22 @@ export const get = async (req, res) => {
         });
     }
 };
+
+export const update = async (req, res) => {
+    try {
+        const category = await Category.findByIdAndUpdate({_id: req.params.id}, req.body, { new: true });
+        if (!category) {
+            return res.status(404).json({
+                message: "Không tìm thấy sản phẩm",
+            });
+        }
+        return res.status(200).json({
+            message: "Sản phẩm đã được cập nhật thành công",
+            data: category,
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: error,
+        });
+    }
+};

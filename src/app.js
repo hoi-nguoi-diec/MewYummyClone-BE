@@ -4,6 +4,8 @@ import dotenv from "dotenv"// see https://github.com/motdotla/dotenv#how-do-i-us
 import mongoose from "mongoose";
 import productRouter from "./routes/product";
 import authRouter from "./routes/"
+import categoryRouter from "./routes/category"
+
 dotenv.config()
 const app = express();
 
@@ -12,7 +14,9 @@ app.use(express.json());
 app.use(cors());
 // router
 app.use("/api", productRouter)
-app.use("/api", );
+
+app.use("/api", categoryRouter)
+
 mongoose.connect("mongodb://127.0.0.1:27017/we17306");
 
 export const viteNodeApp = app;
