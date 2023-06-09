@@ -1,5 +1,5 @@
 import Category from "../models/category";
-import Product from "../models/products";
+import Product from "../models/product";
 export const getAll = async (req, res) => {
     try {
         const categories = await Category.find();

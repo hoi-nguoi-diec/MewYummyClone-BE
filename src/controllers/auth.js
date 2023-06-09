@@ -1,4 +1,4 @@
-import User from "../models/users";
+import User from "../models/user";
 import { signinSchema, signupSchema } from "../schemas/auth";
 import bcrypt from "bcryptjs";
 
