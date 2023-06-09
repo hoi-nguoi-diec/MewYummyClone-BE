@@ -1,5 +1,5 @@
 import User from "../models/user";
-import { signInSchema, signupSchema } from "../schemas/auth";
+import { signinSchema, signupSchema } from "../schemas/auth";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken"
 export const signup = async (req, res) => {
@@ -37,7 +37,7 @@ export const signup = async (req, res) => {
 
 export const signin = async (req, res) => {
     try {
-        const { error } = signInSchema.validate(req.body, { abortEarly: false});
+        const { error } = signinSchema.validate(req.body, { abortEarly: false});
         if(error){
             const errors = error.details.map((err) => err.message);
             return res.status(400).json({
