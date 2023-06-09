@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(cors())
 // router
 app.use("/api", categoryRouter)
-
+app.use("/api", authRouter)
 mongoose.connect("mongodb://127.0.0.1:27017/wd17306");
 
 export const viteNodeApp = app;
