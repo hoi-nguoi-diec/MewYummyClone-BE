@@ -16,3 +16,23 @@ export const getAll = async (req, res) => {
         });
     }
 };
+
+export const get = async (req, res) => {
+    try {
+
+        const category = await Category.findById(req.params.id).populate("products")
+        if (!category) {
+            return res.status(404).json({
+                message: "Không tìm thấy danh mục",
+            });
+        }
+        const products = await Product.find({ categoryId: req.params.id });
+        console.log("products", products);
+ 
+        return res.status(200).json(category)
+    } catch (error) {
+        return res.status(500).json({
+            message: "Lỗi server",
+        });
+    }
+};
