@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken";
-import User from "../models/users";
+import User from "../models/user";
 
 export const checkPermission = async (req, res, next) => {
 
